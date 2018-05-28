@@ -1,16 +1,19 @@
 import SignalStrength
 
 
+menuStrings=["________________________________ \n","Seleccione una opcion: \n","1-Buscar Redes","2-Medir Potencia", "3-Configuracion","4-Salir"]
 
 
 while True:
 
 #Menu Principal
-	print  "________________________________ \n", "Seleccione una opcion: \n \n","1-Buscar Redes \n","2-Medir Potencia \n", "3-Configuracion \n","4-Salir \n","________________________________"
+	print  menuStrings[0]
+	for i in range (1,len(menuStrings)):
+		print menuStrings[i]
+	print  menuStrings[0]
 
-
-
-
+	
+       
 	option=input()
 
 
