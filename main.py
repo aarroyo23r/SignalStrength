@@ -7,13 +7,19 @@ menuStrings=["________________________________ \n","Seleccione una opcion: \n","
 while True:
 
 #Menu Principal
-	print  menuStrings[0]
+
+	from wireless import Wireless
+	wireless = Wireless()
+	currentConection=wireless.current()
+
+	
+	print  menuStrings[0], "Conectado a la red ", currentConection,"\n", menuStrings[0]
 	for i in range (1,len(menuStrings)):
 		print menuStrings[i]
 	print  menuStrings[0]
 
-	
-       
+	  
+      
 	option=input()
 
 
