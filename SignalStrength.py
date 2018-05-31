@@ -84,6 +84,9 @@ def Power(): #Medir potencia de la red a la que se esta conectado
 
 				 cont=cont + 1
                                  print "Medicion", cont, line.lstrip(' ')
+					
+				 SignalStrength=int(line.lstrip(' ')[33:36]) #Variable con la potencia (entero)
+				 LinkQuality=line.lstrip(' ')[13:19]# Variable con la calidad de enlace (string)
 				
                                  f.write(" Medicion ") #Escritura en archivo .txt
 			         f.write(line.lstrip(' '))
