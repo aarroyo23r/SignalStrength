@@ -74,6 +74,7 @@ def Scan(): # Escanear redes disponibles
 		 
 def Power(): #Medir potencia de la red a la que se esta conectado
 	cont=0
+	backup = open ('Backup.txt','w+')
 	try:
 	    while True:
 	    
@@ -83,18 +84,21 @@ def Power(): #Medir potencia de la red a la que se esta conectado
 
 				 cont=cont + 1
                                  print "Medicion", cont, line.lstrip(' ')
-					
-				 SignalStrength=int(line.lstrip(' ')[33:36]) #Variable con la potencia (entero)
-				 LinkQuality=line.lstrip(' ')[13:19]# Variable con la calidad de enlace (string)
-				
-                                 f = open ('Data.txt','w+')
+
+				 SignalStrength=int(line.lstrip(' ')[34:36])
+				 LinkQuality=line.lstrip(' ')[13:19]
+
+				 f = open ('Data.txt','w+')
                                   #Escritura en archivo .txt
 			         f.write( repr(cont) + " " + repr(SignalStrength) + " " + LinkQuality )
+				 backup.write( repr(cont) + " " + repr(SignalStrength) + " " + LinkQuality +'\n' )
 				 f.close()
+				
 				 
      		 	 elif 'Not-Associated' in line:
 				 print 'Sin senal' 
     			 time.sleep(rate)
 	except (KeyboardInterrupt, SystemExit): #Exit with ctrl+C
+	    backup.close()
 	    pass
  
